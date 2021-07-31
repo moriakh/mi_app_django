@@ -7,10 +7,15 @@ urlpatterns = [
     path('blogs/', views.index),
     path('blogs/new', views.new),
     path('blogs/create', views.create),
+    path('blogs/json', views.jsons),
     path('blogs/<int:number>', views.show),
     path('blogs/<int:number>/edit', views.edit),
     path('blogs/<int:number>/delete', views.destroy),
-    path('blogs/json', views.jsons)
+    path('blogs/page', views.page),
+    path('blogs/tarea1', views.tarea1),
+    path('time_display', views.time_display),
+    path('login', views.login),
+    path('signin', views.signin)
 ]
 
 '''

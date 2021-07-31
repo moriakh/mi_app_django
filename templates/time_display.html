@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/time_display/style.css' %}">
+    <title>Time Display</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3 text-right">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button onclick="window.location.href='../login';" class="btn btn-danger">Log out</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8 p-5 text-center">
+                <hr>
+                <h1>
+                    Hola {{request.session.name}}
+                </h1>
+                <hr>
+                <h3 id='date'>{{time}}</h3>
+                <hr>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8 p-5 text-center">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        setInterval(
+        function(){
+            const d = new Date();
+            const datestring = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+            $('#date').html(datestring);
+        },
+        1000
+    );
+    </script>
+</body>
+</html>
+
